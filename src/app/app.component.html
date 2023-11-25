@@ -40,3 +40,108 @@
 
 <!-- <input type="text" name="email" (change)="emailChanged($event)"> -->
 
+<!-- pipes -->
+
+<!-- {{message2 | uppercase}} -->
+<!-- {{currentDate}}
+<br>
+<p>date: {{ currentDate | date}}</p>
+<p>medium : {{currentDate | date:'medium'}} </p>
+<p>short : {{currentDate | date:'short'}} </p>
+<p>fullDate : {{currentDate | date:'fullDate'}} </p>
+<p>longDate : {{currentDate | date:'longDate'}} </p>
+<p>mediumDate : {{currentDate | date:'mediumDate'}} </p>
+<p>shortDate : {{currentDate | date:'shortDate'}} </p>
+<p>mediumTime : {{currentDate | date:'mediumTime'}} </p>
+<p>dd-MM-y : {{currentDate | date:'dd-MM-y'}} </p>
+<p>dd-MM-yy HH:mm : {{currentDate | date:'dd-MM-yy HH:mm'}} </p>
+<br> -->
+
+<!-- multiple parameter -->
+<!-- <p>multiple parameter: {{currentDate | date:'medium':'test'}}</p> -->
+
+<!-- multiple pipe -->
+<!-- <p>multiple pipe: {{currentDate | date:'longDate' | uppercase }}</p> -->
+
+<!-- bad example -->
+<!-- <p>multiple pipe: {{currentDate | uppercase | date:'longDate' }}</p> -->
+
+<!-- {{message2 | shorten:5}} -->
+
+<!-- async pipe -->
+
+<!-- <p>Current Time: {{currentTime$ | async | date:'medium'}}</p> -->
+
+<!-- {{randomDate}} -->
+
+<!-- directives -->
+
+<!-- structural directives * -->
+
+<!-- *ngIf -->
+<!-- <div *ngIf="serverCreated; else noServer">
+  Server is Created
+</div>
+
+<ng-template #noServer>
+  Server is not created
+</ng-template> -->
+
+<!-- <ng-container *ngTemplateOutlet="noServer"></ng-container> -->
+
+<!-- *ngFor -->
+
+<!-- <button (click)="addNewUser()">Add New User</button>
+<button (click)="refreshUserList()">Refresh List</button>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let user of users; let i = index; let first= first; let last=last; let odd= odd; let even=even; "
+      [ngClass]="{ first: first, last: last, odd: odd, even: even  }">
+      <td>{{i}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.surname}}</td>
+      <td>{{user.age}}</td>
+      <td>{{user.email}}</td>
+      <td><button (click)="deleteUser(i)">Delete</button></td>
+    </tr>
+  </tbody>
+</table> -->
+
+<!-- ngFor TrackBy -->
+
+<!-- ngSwitch -->
+<!-- <div [ngSwitch]="luckyNumber">
+  <p *ngSwitchCase="1">Number is 1</p>
+  <p *ngSwitchCase="2">Number is 2</p>
+  <p *ngSwitchCase="3">Number is 3</p>
+  <p *ngSwitchCase="6">Number is 6</p>
+  <p *ngSwitchDefault="10">Number is 10</p>
+</div> -->
+
+<!-- behavior directives -->
+<!-- ngClass -->
+
+<!-- <div [ngClass]="{makeRed: isValid(), 'makeBlackBg': true}">Lorem ipsum dolor sit amet.</div>
+
+<div [ngClass]="['makeRed', 'makeBlackBg']">Lorem ipsum dolor sit amet.</div> -->
+
+<!-- ngStyle -->
+
+<!-- <div [ngStyle]="{'color': isValid() ? 'blue' : 'red'}">Lorem ipsum dolor sit amet.</div>
+
+<p turnGreen>Lorem ipsum dolor sit amet.</p> -->
+
+<app-parent></app-parent>

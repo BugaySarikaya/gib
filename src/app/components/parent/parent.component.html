@@ -1,0 +1,128 @@
+<p>parent works!</p>
+<!-- <button (click)="increment()">Increment</button>
+<button (click)="decrement()">Decrement</button>
+<app-child #child [count]="counter" (countChange)="countChanged($event)">
+</app-child>
+
+<div>
+  Child Count: {{child.count}}
+</div>
+<button (click)="child.increment()">Parent-Child Increment</button>
+<button (click)="child.decrement()">Parent-Child Decrement</button> -->
+
+<!-- <app-child [CustomCount]="6">
+</app-child> -->
+
+
+<!-- <app-child> -->
+<!-- <p>Parenttan selam</p> -->
+<!-- <content #content>Content from Parent</content>
+  <footer>Footer from Parent</footer>
+</app-child> -->
+
+<!-- <input type="text" name="title" #title> -->
+
+
+<!-- form building blocks- yapı taşları -->
+<!-- formcontrol, formarray, formgroup -->
+
+<!-- First Name: <input type="text" name="name">  -->
+<!-- valid/invalid pristine/dirty, touched/untouched-->
+
+<!-- template driven forms -->
+<!-- <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm)"> -->
+<!-- Form Group -->
+<!-- <p>
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="firstName" #fname="ngModel" [(ngModel)]="user.firstName" required>
+  </p> -->
+<!--Form Control -->
+<!-- <p>
+    <label for="lastName">Last Name</label>
+    <input type="text" id="lastName" name="lastName" #lname="ngModel" [(ngModel)]="user.lastName" required
+      minlength="10">
+  </p>
+  <div *ngIf="!lname.valid && lname.touched && lname?.errors?.['required']">Last Name is required!</div>
+  <div *ngIf="!lname.valid && lname.touched && lname?.errors?.['minlength']">Should be minimum 10 letters</div>
+
+  <p>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" #password="ngModel" ngModel required strengthPassword>
+  </p>
+  <div *ngIf="!password.valid && password.touched && password?.errors?.['required']">Password is required!</div>
+
+  <div *ngIf="!password.valid && password.touched && password?.errors?.['strengthPassword']">Password should be at least
+    8 characters!</div>
+
+  <p>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" [(ngModel)]="user.email">
+  </p>
+
+  <div ngModelGroup="address">
+    <p>
+      <label for="city">City</label>
+      <input type="text" id="city" name="city" ngModel>
+    </p>
+    <p>
+      <label for="street">Street</label>
+      <input type="text" id="street" name="street" ngModel>
+    </p>
+  </div>
+  <p>
+    <button type="submit" [disabled]="!userForm.valid">Submit</button>
+    <button type="button" (click)="reset(userForm)">Reset Form</button>
+  </p>
+</form>
+
+<pre>Value: {{userForm.value | json}}</pre>
+<pre>Valid: {{userForm.valid | json}}</pre>
+<pre>Touched: {{userForm.touched | json}}</pre>
+<pre>Submitted: {{userForm.submitted | json}}</pre>
+
+<pre>FirstName Value: {{fname.value | json}}</pre>
+<pre>FirstName Valid: {{fname.valid | json}}</pre>
+<pre>FirstName Touched: {{fname.touched | json}}</pre> -->
+
+
+<!-- reactive form -->
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <p>
+    <label for="firstName">First Name</label>
+    <input type="text" id="firstName" name="firstName" formControlName="firstName">
+  </p>
+  <!-- <div
+    *ngIf="!userForm?.controls?.['firstName']?.valid && userForm?.controls?.['firstName']?.touched && userForm.controls?.['firstName']?.['errors']?.['required']">
+    First Name is required!
+  </div> -->
+  <!-- <div *ngIf="!firstName?.valid && firstName?.touched && firstName?.['errors']?.['required']">
+    First Name is required!
+  </div> -->
+  <div *ngIf="!firstName?.valid && firstName?.touched && firstName?.hasError('required')">
+    First Name is required!
+  </div>
+  <div *ngIf="!firstName?.valid && firstName?.touched && firstName?.hasError('minlength')">
+    Minlength 8!
+  </div>
+  <p>
+    <label for="email">Email</label>
+    <input type="email" id="email" name="email" formControlName="email">
+  </p>
+  <p>
+    <label for="password">Password</label>
+    <input type="password" id="password" name="password" formControlName="password">
+  </p>
+
+  <div *ngIf="!password?.valid && password?.touched && password?.hasError('required')">
+    Password is required!
+  </div>
+  <div *ngIf="!password?.valid && password?.touched && password?.hasError('strengthPassword')">
+    Password is weak!
+  </div>
+  <p>
+    <button type="submit" [disabled]="!userForm.valid">Submit</button>
+  </p>
+</form>
+
+<app-rxjs></app-rxjs>
