@@ -1,0 +1,35 @@
+<h2>User List</h2>
+
+<button (click)="addNewUser()">Add New User</button>
+<button (click)="refreshUserList()">Refresh List</button>
+<div *ngIf="loading">Loading...</div>
+<table class="user-table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Surname</th>
+      <th>Age</th>
+      <th>Email</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let user of userList; let i = index; let first= first; let last=last; let odd= odd; let even=even; "
+      [ngClass]="{ first: first, last: last, odd: odd, even: even  }">
+      <td>{{i}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.surname}}</td>
+      <td>{{user.age}}</td>
+      <td>{{user.email}}</td>
+      <td>
+        <button [routerLink]="['/user', user.id]">Edit</button> <!-- /users/5-->
+        <button (click)="deleteUser(user.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<router-outlet></router-outlet>

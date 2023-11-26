@@ -1,12 +1,12 @@
-<h1>Gelir İdaresi Başkanlığı</h1>
+<!-- <h1>Gelir İdaresi Başkanlığı</h1> -->
 
 <!-- one way data binding  (3 different options)-->
 
 <!-- display data interpolation {{}} -->
 
 <!-- {{50 * 2}} -->
-<span>{{title}} app is running!</span>
-<br>
+<!-- <span>{{title}} app is running!</span>
+<br> -->
 <!-- {{getTitle()}}
 <p><span class="{{makeRedRef}}">String Interpolation</span></p>
 <p><span style.color="{{makeRedStyle}}">String Interpolation</span></p>
@@ -144,4 +144,22 @@
 
 <p turnGreen>Lorem ipsum dolor sit amet.</p> -->
 
-<app-parent></app-parent>
+<!-- <app-parent></app-parent> -->
+<!-- <app-user></app-user> -->
+<ul>
+  <li>
+    <a [routerLink]="['user']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+      [state]="{ id:1 , name:'Angular'}">User List</a>
+  </li>
+  <li>
+    <a [routerLink]="['user/1']" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" [queryParams]="
+      {data: 2}">User Detail</a>
+  </li>
+</ul>
+
+<div class="card flex justify-content-center">
+  <p-button label="Primeng Button" icon="pi pi-check"></p-button>
+</div>
+
+
+<router-outlet></router-outlet>

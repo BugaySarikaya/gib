@@ -81,6 +81,11 @@ export class AppComponent {
     this.currentTime$ = interval(1000).pipe(map(() => new Date()));
 
     this.randomDate = this.datePipe.transform(new Date()) || '';
+
+    localStorage.setItem(
+      'token',
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2Mjc5MjgyMzksInVzZXJSb2xlcyI6WyJBRE1JTiIsIkRCX1JFQUQiLCJEQl9XUklURSJdLCJ1c2VySWQiOjEyMzQ1LCJpYXQiOjE2Mjc5MjgxMTl9.8vTwsBOp8LSa0sdc0nWAUnmWAAgOnS0ElB3bfaiSRfQ'
+    );
   }
 
   getTitle() {
